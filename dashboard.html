@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+</head>
+<body>
+    <h2>Welcome, {{ email }}</h2>
+    <a href="{{ url_for('send_email') }}">Send Email</a> |
+    <a href="{{ url_for('inbox') }}">Inbox</a> |
+    <a href="{{ url_for('logout') }}">Logout</a>
+</body>
+</html>

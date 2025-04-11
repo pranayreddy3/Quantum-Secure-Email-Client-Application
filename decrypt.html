@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Decrypted Message</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+</head>
+<body>
+    <h2>Decrypted Message</h2>
+    <p><strong>From:</strong> {{ sender }}</p>
+    <p><strong>Message:</strong> {{ message }}</p>
+    {% if file_exists %}
+    <a href="{{ url_for('download_decrypted_file', message_id=message_id) }}">Download Decrypted File</a>
+    {% endif %}
+    <br><br>
+    <a href="{{ url_for('inbox') }}">Back to Inbox</a>
+</body>
+</html>

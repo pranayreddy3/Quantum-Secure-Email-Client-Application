@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Send Encrypted Message</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+</head>
+<body>
+    <h2>Send Encrypted Message</h2>
+    <form method="POST" enctype="multipart/form-data">
+        <label>To (Recipient Email):</label>
+        <input type="email" name="receiver" required><br>
+        <label>Message:</label>
+        <textarea name="message" required></textarea><br>
+        <label>Attachment:</label>
+        <input type="file" name="file"><br>
+        <input type="submit" value="Send">
+    </form>
+    <a href="{{ url_for('inbox') }}">Go to Inbox</a>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inbox</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h2>Inbox</h2>
+    {% for message in messages %}
+        <div style="border:1px solid #ccc; padding:10px; margin:10px;">
+            <p><strong>From:</strong> {{ message[1] }}</p>
+            <p><strong>Encrypted Message:</strong> {{ message[2] }}</p>
+            <a href="{{ url_for('decrypt_message', message_id=message[0]) }}">Decrypt</a>
+            
+            {% if message[3] %}
+                <!-- Ensure the correct endpoint exists -->
+                | <a href="{{ url_for('download_decrypted_file', message_id=message[0]) }}">Download Decrypted File</a>
+            {% endif %}
+        </div>
+    {% endfor %}
+    
+    <a href="{{ url_for('send_message') }}">Compose New Message</a> | 
+    <a href="{{ url_for('logout') }}">Logout</a>
+</body>
+</html>
